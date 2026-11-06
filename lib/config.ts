@@ -1,4 +1,5 @@
 // All tuning lives here: scroll lengths, easing, shader strengths and feature flags.
+import { asset } from "@/lib/asset";
 
 export const config = {
   hero: {
@@ -14,15 +15,15 @@ export const config = {
     // Scrub video. Off until a clip is added to /public/media (see README).
     video: {
       enabled: false,
-      desktop: "/media/hero-desktop.mp4",
-      mobile: "/media/hero-mobile.mp4",
-      poster: "/media/hero-poster.jpg",
+      desktop: asset("/media/hero-desktop.mp4"),
+      mobile: asset("/media/hero-mobile.mp4"),
+      poster: asset("/media/hero-poster.jpg"),
     },
     // Still photo with a slow camera move driven by scroll (used while there is no video).
     // The photo is already graded darker and warmer, so the shader adds no extra grade.
     still: {
       enabled: true,
-      src: "/media/photos/hero.jpg",
+      src: asset("/media/photos/hero.jpg"),
       overscan: 1.32, // image is drawn 132% of the stage, as in the design
       pan: 0.23, // share of the image panned over the whole scroll
       zoom: 0.08, // starts 8% closer, settles to 1

@@ -17,7 +17,11 @@ const text = Hanken_Grotesk({
   display: "swap",
 });
 
+// Demo builds (NEXT_PUBLIC_BASE_PATH set) must not be indexed.
+const isDemo = Boolean(process.env.NEXT_PUBLIC_BASE_PATH);
+
 export const metadata: Metadata = {
+  ...(isDemo ? { robots: { index: false, follow: false } } : {}),
   title: site.title,
   description: site.description,
   openGraph: {

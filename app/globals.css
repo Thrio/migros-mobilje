@@ -243,8 +243,9 @@ html.mm-solid .mm-head {
   inset: 0;
   width: 100%;
   height: 100%;
-  /* Shown before the canvas draws, and without JavaScript. Same file as hero.still.src in lib/config.ts. */
-  background: var(--surface) url("/media/photos/hero.jpg") center / cover no-repeat;
+  /* Shown before the canvas draws, and without JavaScript. The image (hero.still.src in lib/config.ts)
+     is set inline in app/page.tsx so it gets the demo base path. */
+  background: var(--surface) center / cover no-repeat;
 }
 .mm-scrim {
   position: absolute;

@@ -1,4 +1,5 @@
 // All copy and contact data. Albanian, standard, formal "ju".
+import { asset } from "@/lib/asset";
 // Anything the research could not confirm stays out of this file.
 
 export const site = {
@@ -24,7 +25,7 @@ export const nav = [
 export const callLabel = "Na telefononi";
 
 // Photos live in /public/media/photos (stock, see credits below).
-export const photo = (file: string) => `/media/photos/${file}`;
+export const photo = (file: string) => asset(`/media/photos/${file}`);
 
 export const altText = {
   hero: "Shtof i butë në ngjyrë krem, pamje nga afër",

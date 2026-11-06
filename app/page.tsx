@@ -116,7 +116,13 @@ export default function Page() {
       <main>
         <section className="mm-hero" id="mm-hero">
           <div className="mm-stage">
-            <div className="mm-herocanvas" id="mm-herocanvas" role="img" aria-label={altText.hero}>
+            <div
+              className="mm-herocanvas"
+              id="mm-herocanvas"
+              role="img"
+              aria-label={altText.hero}
+              style={{ backgroundImage: `url("${config.hero.still.src}")` }}
+            >
               <HeroCanvas />
             </div>
             <div className="mm-scrim" />
