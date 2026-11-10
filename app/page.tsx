@@ -65,21 +65,6 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
 
-      <div className="mm-loader" id="mm-loader" aria-hidden="true">
-        <div className="mm-lwrap">
-          <span className="mm-mark">
-            <b>MIGROS</b>
-            <i>mobilje</i>
-          </span>
-          <div className="mm-pbar">
-            <div className="mm-pfill" id="mm-pfill" />
-          </div>
-          <div className="mm-pct" id="mm-pct">
-            0%
-          </div>
-        </div>
-      </div>
-
       <header className="mm-head">
         <div className="mm-headin">
           <a className="mm-mark" href="#top" aria-label={aria.brand}>

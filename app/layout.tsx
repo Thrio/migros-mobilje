@@ -39,18 +39,9 @@ export const viewport: Viewport = {
   themeColor: "#15110F",
 };
 
-// Runs before first paint: shows the loader once per session, and never leaves it stuck.
-const loaderGate = `try{var d=document.documentElement;if(sessionStorage.getItem('mm-loader')!=='1'){d.classList.add('mm-loading');setTimeout(function(){d.classList.remove('mm-loading')},4000)}}catch(e){}`;
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sq" className={`${display.variable} ${text.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: loaderGate }} />
-        <noscript>
-          <style>{`.mm-loader{display:none!important}`}</style>
-        </noscript>
-      </head>
       <body>{children}</body>
     </html>
   );

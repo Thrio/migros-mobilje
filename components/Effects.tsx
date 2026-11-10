@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { config } from "@/lib/config";
 
-type HeroWindow = Window & { __mmHeroReady?: boolean };
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
@@ -159,72 +158,16 @@ export default function Effects() {
       }
     }
 
-    // Loader: follows real progress (fonts, hero media). Min 0.8 s, max 2.5 s, once per session.
-    let seen = false;
-    try {
-      seen = sessionStorage.getItem("mm-loader") === "1";
-    } catch {
-      /* storage unavailable */
-    }
     const refresh = () => ScrollTrigger.refresh();
     if (document.fonts?.ready) document.fonts.ready.then(refresh, refresh);
     on(window, "load", refresh);
 
-    let loaderRaf = 0;
-    let leaveTimer: ReturnType<typeof setTimeout> | undefined;
-    if (seen) {
-      root.classList.remove("mm-loading");
-    } else {
-      const fill = document.getElementById("mm-pfill");
-      const pct = document.getElementById("mm-pct");
-      const t0 = performance.now();
-      let done = 0;
-      let shown = 0;
-      let finished = false;
-      const step = () => {
-        done += 1;
-      };
-      root.classList.add("mm-loading");
-      (document.fonts?.ready ?? Promise.resolve()).then(step, step);
-      const heroWin = window as HeroWindow;
-      if (heroWin.__mmHeroReady) step();
-      else window.addEventListener("mm:hero-ready", step, { once: true });
-
-      const frame = (now: number) => {
-        const elapsed = now - t0;
-        const goal = elapsed > config.loader.maxMs ? 1 : (done / 2) * Math.min(1, elapsed / config.loader.minMs);
-        shown += (goal - shown) * 0.14;
-        if (goal === 1 && shown > 0.995) shown = 1;
-        if (fill) fill.style.transform = `scaleX(${shown.toFixed(3)})`;
-        if (pct) pct.textContent = `${Math.round(shown * 100)}%`;
-        if (shown < 1) {
-          loaderRaf = requestAnimationFrame(frame);
-          return;
-        }
-        if (finished) return;
-        finished = true;
-        try {
-          sessionStorage.setItem("mm-loader", "1");
-        } catch {
-          /* storage unavailable */
-        }
-        root.classList.add("mm-leaving");
-        leaveTimer = setTimeout(() => {
-          root.classList.remove("mm-loading", "mm-leaving");
-          ScrollTrigger.refresh();
-        }, still ? 450 : 850);
-      };
-      loaderRaf = requestAnimationFrame(frame);
-    }
-
     return () => {
-      cancelAnimationFrame(loaderRaf);
-      if (leaveTimer) clearTimeout(leaveTimer);
       cleanups.forEach((fn) => fn());
       observers.forEach((o) => o.disconnect());
       lenis?.destroy();
       root.style.removeProperty("--hero-h");
-      root.classList.remove("mm-live", "mm-anim", "mm-still", "mm-solid", "mm-nobar", "mm-loading", "mm-leaving");
+      root.classList.remove("mm-live", "mm-anim", "mm-still", "mm-solid", "mm-nobar");
     };
   }, []);
 

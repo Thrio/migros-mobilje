@@ -38,7 +38,6 @@ export const config = {
     },
   },
   lenis: { lerp: 0.085 },
-  loader: { minMs: 800, maxMs: 2500 },
   // Photos for tiles, cards and the Kuzhina section (/public/media/photos). Turn off to show flat tones.
   photos: { enabled: true },
   flags: {
