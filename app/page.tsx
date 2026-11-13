@@ -124,11 +124,6 @@ export default function Page() {
             </div>
             <div className="mm-herovisual mm-in" style={{ ["--d" as string]: "120ms" }}>
               <img className="mm-heroimg" src={config.hero.src} alt={altText.hero} fetchPriority="high" />
-              <div className="mm-chip">
-                {hero.chips.map((c) => (
-                  <span key={c}>{c}</span>
-                ))}
-              </div>
             </div>
           </div>
         </section>

@@ -37,7 +37,6 @@ export const hero = {
   heading: "Rehatia për familjen tuaj fillon tek ne.",
   sub: "Mobilje, kuzhina, interier dhe zyre. Katër lokale në Prishtinë, Ferizaj, Gjilan dhe Viti.",
   visit: "Ejani në një nga katër lokalet tona.",
-  chips: ["Garnitura", "Dhoma gjumi", "Kuzhina", "Zyre"],
 } as const;
 
 export const heroCtas = {

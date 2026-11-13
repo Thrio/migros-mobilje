@@ -306,27 +306,6 @@ html.mm-solid .mm-head {
   object-fit: cover;
   animation: mm-zoom 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
-.mm-chip {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 4px;
-  border-radius: 999px;
-  background: rgba(239, 232, 222, 0.95);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-}
-.mm-chip span {
-  padding: 6px 14px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--light-text);
-}
-.mm-chip span + span {
-  border-left: 1px solid rgba(33, 27, 23, 0.15);
-}
 .mm-in {
   animation: mm-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   animation-delay: var(--d, 0ms);
@@ -739,9 +718,6 @@ html.mm-anim .mm-r.is-in .mm-line {
   }
   .mm-hl {
     font-size: 2.25rem;
-  }
-  .mm-chip {
-    display: none;
   }
   .mm-cta {
     flex-direction: column;
