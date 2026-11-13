@@ -293,7 +293,7 @@ html.mm-solid .mm-head {
 }
 .mm-herovisual {
   position: relative;
-  height: min(72vh, 680px);
+  aspect-ratio: 450 / 335;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
@@ -309,7 +309,7 @@ html.mm-solid .mm-head {
 .mm-chip {
   position: absolute;
   left: 20px;
-  bottom: 20px;
+  top: 20px;
   display: flex;
   flex-wrap: wrap;
   padding: 4px;
@@ -347,10 +347,6 @@ html.mm-solid .mm-head {
     grid-template-columns: minmax(0, 1fr);
     gap: 40px;
     min-height: 0;
-  }
-  .mm-herovisual {
-    height: auto;
-    aspect-ratio: 4 / 3;
   }
 }
 
@@ -743,12 +739,6 @@ html.mm-anim .mm-r.is-in .mm-line {
   }
   .mm-hl {
     font-size: 2.25rem;
-  }
-  .mm-herovisual {
-    aspect-ratio: 4 / 5;
-  }
-  .mm-heroimg {
-    object-position: 62% 50%;
   }
   .mm-chip {
     display: none;

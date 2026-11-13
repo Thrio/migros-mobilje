@@ -28,7 +28,7 @@ export const callLabel = "Na telefononi";
 export const photo = (file: string) => asset(`/media/photos/${file}`);
 
 export const altText = {
-  hero: "Shtof i butë në ngjyrë krem, pamje nga afër",
+  hero: "Krevat i tapicuar në ngjyrë krem me komodina dhe një llambë të varur, në një dhomë gjumi",
 } as const;
 
 // Static one-screen hero: moment 1 (heading and intro) and the closing moment (visit a showroom) together.
@@ -166,11 +166,12 @@ export const aria = {
   brand: "Migros Mobilje",
 } as const;
 
+// The hero photo (hero-migros.jpg) is Migros Mobilje's own, from their Facebook page (post of 14 July 2026);
+// it is 450 px wide at the source and upscaled, so ask the client for the original file.
 // Stock photo credits, as recorded in the project's photo-credits.md (5 Nov 2026).
 // All from Unsplash (not Unsplash+). None is a Migros Mobilje product or showroom.
 // The licence was read from the image host, not each photo page: confirm on the pages before launch.
 export const credits = [
-  { where: "Hero (graded darker and warmer)", file: "hero.jpg", photographer: "Kateryna Hliznitsova", url: "https://unsplash.com/photos/a-close-up-of-a-bed-with-a-white-sheet-2NDtPNiLcD0" },
   { where: "Tile: Garnitura (slight warm tint)", file: "tile-garnitura.jpg", photographer: "Jacinta Christos", url: "https://unsplash.com/photos/white-textile-in-close-up-photography-BDJy8J3R4GY" },
   { where: "Tile: Karrika", file: "tile-karrika.jpg", photographer: "Raygar He", url: "https://unsplash.com/photos/brown-wooden-chair-beside-white-wall-iyOEfpWjky0" },
   { where: "Tile: Tavolina e ushqimit", file: "tile-tavolina-e-ushqimit.jpg", photographer: "Costa Live", url: "https://unsplash.com/photos/wooden-dining-table-and-chairs-with-grey-upholstery-T_CYjDSfvkY" },

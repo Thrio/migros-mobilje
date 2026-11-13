@@ -4,7 +4,7 @@ import { asset } from "@/lib/asset";
 export const config = {
   hero: {
     // Static hero: no scroll length, no video, no canvas. One framed photo.
-    src: asset("/media/photos/hero.jpg"),
+    src: asset("/media/photos/hero-migros.jpg"), // client photo (Facebook), landscape 4:3
   },
   lenis: { lerp: 0.085 },
   // Photos for tiles, cards and the Kuzhina section (/public/media/photos). Turn off to show flat tones.
