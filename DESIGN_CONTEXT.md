@@ -21,7 +21,7 @@
 ## Decisions
 - Language Albanian, standard, formal "ju".
 - Goal: visit a showroom. Secondary: call 049 998 999.
-- Hero: still photo with scroll-driven camera move (video optional, off).
+- Hero (changed 13 Nov 2026): the five scroll moments were cut to two (moment 1 and the closing showroom moment) and shown together as a static one-screen split hero: copy and the two buttons on the left, the framed hero photo on the right. three.js, the scroll scrub and the video option were removed. Header turns solid as soon as the page scrolls.
 - Social links use the real profile URLs from the research (the design used search URLs).
 - The design adds a "Kuzhina dhe interiere të plota" section between the bedroom cards and Lokalet; copy is from the brief.
 - The photos show furniture and rooms, not only textures (brief section 8 said textures only). They are stock, credited, and not labelled as client products.

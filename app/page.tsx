@@ -1,12 +1,11 @@
 import Effects from "@/components/Effects";
-import HeroCanvas from "@/components/HeroCanvas";
 import { config } from "@/lib/config";
 import {
   altText,
   aria,
   callLabel,
   dhoma,
-  heroBeats,
+  hero,
   heroCtas,
   kontakti,
   koleksionet,
@@ -100,39 +99,36 @@ export default function Page() {
 
       <main>
         <section className="mm-hero" id="mm-hero">
-          <div className="mm-stage">
-            <div
-              className="mm-herocanvas"
-              id="mm-herocanvas"
-              role="img"
-              aria-label={altText.hero}
-              style={{ backgroundImage: `url("${config.hero.still.src}")` }}
-            >
-              <HeroCanvas />
+          <div className="mm-wrap mm-herogrid">
+            <div className="mm-herocopy">
+              <p className="mm-eyebrow mm-in" style={{ ["--d" as string]: "0ms" }}>
+                {hero.eyebrow}
+              </p>
+              <h1 className="mm-hl mm-in" style={{ ["--d" as string]: "80ms" }}>
+                {hero.heading}
+              </h1>
+              <p className="mm-sub mm-in" style={{ ["--d" as string]: "160ms" }}>
+                {hero.sub}
+              </p>
+              <p className="mm-visit mm-in" style={{ ["--d" as string]: "220ms" }}>
+                {hero.visit}
+              </p>
+              <div className="mm-cta mm-in" style={{ ["--d" as string]: "280ms" }}>
+                <a className="mm-btn mm-red" href="#lokalet" data-track="cta-lokalet-hero">
+                  {heroCtas.primary}
+                </a>
+                <a className="mm-btn mm-out" href={site.phoneHref} data-track="call-hero">
+                  {heroCtas.secondary}
+                </a>
+              </div>
             </div>
-            <div className="mm-scrim" />
-            <div className="mm-beats">
-              {heroBeats.map((b, i) => {
-                const Heading = i === 0 ? "h1" : "h2";
-                return (
-                  <div className="mm-beat" key={b.id}>
-                    <Heading className="mm-hl">
-                      <span>{b.heading}</span>
-                    </Heading>
-                    {b.sub ? <p className="mm-sub">{b.sub}</p> : null}
-                    {i === heroBeats.length - 1 ? (
-                      <div className="mm-cta">
-                        <a className="mm-btn mm-red" href="#lokalet" data-track="cta-lokalet-hero">
-                          {heroCtas.primary}
-                        </a>
-                        <a className="mm-btn mm-out" href={site.phoneHref} data-track="call-hero">
-                          {heroCtas.secondary}
-                        </a>
-                      </div>
-                    ) : null}
-                  </div>
-                );
-              })}
+            <div className="mm-herovisual mm-in" style={{ ["--d" as string]: "120ms" }}>
+              <img className="mm-heroimg" src={config.hero.src} alt={altText.hero} fetchPriority="high" />
+              <div className="mm-chip">
+                {hero.chips.map((c) => (
+                  <span key={c}>{c}</span>
+                ))}
+              </div>
             </div>
           </div>
         </section>

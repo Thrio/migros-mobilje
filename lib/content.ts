@@ -31,33 +31,14 @@ export const altText = {
   hero: "Shtof i butë në ngjyrë krem, pamje nga afër",
 } as const;
 
-export const heroBeats = [
-  {
-    id: "beat-1",
-    heading: "Rehatia për familjen tuaj fillon tek ne.",
-    sub: "Mobilje, kuzhina, interier dhe zyre. Katër lokale në Prishtinë, Ferizaj, Gjilan dhe Viti.",
-  },
-  {
-    id: "beat-2",
-    heading: "Komoditet që flet për stilin tuaj.",
-    sub: "Garnitura FLY ka detaje druri natyral dhe shtof.",
-  },
-  {
-    id: "beat-3",
-    heading: "Nga koncepti deri te realizimi.",
-    sub: "Dhoma gjumi, kuzhina dhe interiere të plota. Na kontaktoni për çmime dhe porosi.",
-  },
-  {
-    id: "beat-4",
-    heading: "Sepse luksi ndërtohet në detaje.",
-    sub: "Dhomat ZIRVE, Mabel dhe MILAS.",
-  },
-  {
-    id: "beat-5",
-    heading: "Ejani në një nga katër lokalet tona.",
-    sub: null,
-  },
-] as const;
+// Static one-screen hero: moment 1 (heading and intro) and the closing moment (visit a showroom) together.
+export const hero = {
+  eyebrow: "Migros Mobilje · Prishtinë · Ferizaj · Gjilan · Viti",
+  heading: "Rehatia për familjen tuaj fillon tek ne.",
+  sub: "Mobilje, kuzhina, interier dhe zyre. Katër lokale në Prishtinë, Ferizaj, Gjilan dhe Viti.",
+  visit: "Ejani në një nga katër lokalet tona.",
+  chips: ["Garnitura", "Dhoma gjumi", "Kuzhina", "Zyre"],
+} as const;
 
 export const heroCtas = {
   primary: "Gjeni lokalin më afër",
