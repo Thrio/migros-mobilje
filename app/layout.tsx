@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, Young_Serif } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/content";
+import { shareBase, pagePath, shareImage } from "@/lib/share";
 
 const display = Young_Serif({
   subsets: ["latin", "latin-ext"],
@@ -21,6 +22,7 @@ const text = Hanken_Grotesk({
 const isDemo = Boolean(process.env.NEXT_PUBLIC_BASE_PATH);
 
 export const metadata: Metadata = {
+  metadataBase: new URL(shareBase),
   ...(isDemo ? { robots: { index: false, follow: false } } : {}),
   title: site.title,
   description: site.description,
@@ -30,7 +32,10 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "sq_AL",
     type: "website",
+    url: pagePath(),
+    images: [{ ...shareImage, alt: site.name }],
   },
+  twitter: { card: "summary_large_image", images: [shareImage.url] },
 };
 
 export const viewport: Viewport = {
