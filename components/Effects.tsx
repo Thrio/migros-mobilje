@@ -72,7 +72,7 @@ export default function Effects() {
     } else {
       root.classList.add("mm-anim");
 
-      // Reveals: fade-up with stagger, image mask wipe, hairline draw. Content is visible without JS.
+      // Reveals: short fade-up with stagger, hairline draw. Content is visible without JS.
       if ("IntersectionObserver" in window) {
         const reveal = new IntersectionObserver(
           (entries) => {
@@ -83,7 +83,8 @@ export default function Effects() {
               }
             });
           },
-          { threshold: 0.14 },
+          // Start the reveal just before a block scrolls into view, so it is never seen empty.
+          { threshold: 0, rootMargin: "0px 0px 10% 0px" },
         );
         document.querySelectorAll(".mm-r").forEach((el) => reveal.observe(el));
         observers.push(reveal);

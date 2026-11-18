@@ -155,7 +155,6 @@ export default function Page() {
                         width={800}
                         height={620}
                         alt={t.alt}
-                        loading="lazy"
                         decoding="async"
                       />
                     </div>
