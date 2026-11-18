@@ -27,6 +27,23 @@ export const callLabel = "Na telefononi";
 // Photos live in /public/media/photos (stock, see credits below).
 export const photo = (file: string) => asset(`/media/photos/${file}`);
 
+// Each photo also exists as WebP at two widths (<name>-<width>.webp), made from the .jpg.
+// photoSet gives the <img> a small file for phones and the large one for desktop.
+const photoWidths: Record<string, [number, number]> = {
+  tile: [400, 800],
+  card: [800, 1600],
+  hero: [700, 1350],
+  kuzhina: [750, 1500],
+};
+export const photoSet = (file: string) => {
+  const name = file.replace(/\.jpe?g$/i, "");
+  const [small, large] = photoWidths[name.split("-")[0]];
+  return {
+    src: photo(`${name}-${large}.webp`),
+    srcSet: `${photo(`${name}-${small}.webp`)} ${small}w, ${photo(`${name}-${large}.webp`)} ${large}w`,
+  };
+};
+
 export const altText = {
   hero: "Krevat i tapicuar në ngjyrë krem me komodina dhe një llambë të varur, në një dhomë gjumi",
 } as const;

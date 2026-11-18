@@ -13,7 +13,7 @@ import {
   lokalet,
   mapUrl,
   nav,
-  photo,
+  photoSet,
   site,
 } from "@/lib/content";
 
@@ -123,7 +123,16 @@ export default function Page() {
               </div>
             </div>
             <div className="mm-herovisual mm-in" style={{ ["--d" as string]: "120ms" }}>
-              <img className="mm-heroimg" src={config.hero.src} alt={altText.hero} fetchPriority="high" />
+              <img
+                className="mm-heroimg"
+                {...photoSet(config.hero.image)}
+                sizes="(max-width: 1023px) 92vw, 640px"
+                width={1350}
+                height={1005}
+                alt={altText.hero}
+                fetchPriority="high"
+                decoding="async"
+              />
             </div>
           </div>
         </section>
@@ -139,7 +148,16 @@ export default function Page() {
                 <a className="mm-tile mm-r" style={{ ["--i" as string]: i }} href="#kontakti" key={t.name} data-track="tile">
                   {photos ? (
                     <div className="mm-tileimg">
-                      <img className={t.warm ? "mm-warm" : undefined} src={photo(t.image)} alt={t.alt} loading="lazy" />
+                      <img
+                        className={t.warm ? "mm-warm" : undefined}
+                        {...photoSet(t.image)}
+                        sizes="(max-width: 1023px) 50vw, 320px"
+                        width={800}
+                        height={620}
+                        alt={t.alt}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                   ) : null}
                   <div className="mm-tiletext">
@@ -158,7 +176,9 @@ export default function Page() {
             <div className="mm-cards">
               {dhoma.cards.map((c, i) => (
                 <article className="mm-card mm-r" style={{ ["--i" as string]: i }} key={c.name}>
-                  {photos ? <img src={photo(c.image)} alt={c.alt} loading="lazy" /> : null}
+                  {photos ? (
+                    <img {...photoSet(c.image)} sizes="(max-width: 1320px) 100vw, 1320px" width={1600} height={640} alt={c.alt} loading="lazy" decoding="async" />
+                  ) : null}
                   <h3>{c.name}</h3>
                   <p>{c.line}</p>
                 </article>
@@ -180,7 +200,7 @@ export default function Page() {
             </div>
             {photos ? (
               <div className="mm-splitimg mm-r" style={{ ["--i" as string]: 1 }}>
-                <img src={photo(kuzhina.image)} alt={kuzhina.alt} loading="lazy" />
+                <img {...photoSet(kuzhina.image)} sizes="(max-width: 1023px) 100vw, 760px" width={1500} height={1100} alt={kuzhina.alt} loading="lazy" decoding="async" />
               </div>
             ) : null}
           </div>

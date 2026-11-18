@@ -1,10 +1,10 @@
 // All tuning lives here: smoothing, photos and feature flags.
-import { asset } from "@/lib/asset";
 
 export const config = {
   hero: {
     // Static hero: no scroll length, no video, no canvas. One framed photo.
-    src: asset("/media/photos/hero-migros.jpg"), // client photo (Facebook), landscape 4:3
+    // Client photo (Facebook), landscape 4:3. Served as hero-migros-700/1350.webp.
+    image: "hero-migros.jpg",
   },
   lenis: { lerp: 0.085 },
   // Photos for tiles, cards and the Kuzhina section (/public/media/photos). Turn off to show flat tones.
